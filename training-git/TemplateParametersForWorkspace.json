@@ -10,12 +10,6 @@
 		},
 		"training-git-WorkspaceDefaultSqlServer_connectionString": {
 			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=tcp:training-git.sql.azuresynapse.net,1433;Initial Catalog=@{linkedService().DBName}"
-		},
-		"LS_Gen2_CSV_dev_properties_typeProperties_url": {
-			"value": "https://stgtraininggit.dfs.core.windows.net/"
-		},
-		"training-git-WorkspaceDefaultStorage_properties_typeProperties_url": {
-			"value": "https://stgtraininggit.dfs.core.windows.net"
 		}
 	}
 }
