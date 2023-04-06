@@ -2,9 +2,9 @@
 	"Microsoft.Synapse/workspaces/datasets": {
 		"DelimitedText": {
 			"properties": {
-				"parameters": {
-					"*": {
-						"defaultValue": "-"
+				"typeProperties": {
+					"location": {
+						"fileSystem": "-"
 					}
 				}
 			}
