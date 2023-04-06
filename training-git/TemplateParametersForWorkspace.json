@@ -1,0 +1,21 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"workspaceName": {
+			"value": "training-git"
+		},
+		"LS_Gen2_CSV_dev_accountKey": {
+			"value": ""
+		},
+		"training-git-WorkspaceDefaultSqlServer_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=tcp:training-git.sql.azuresynapse.net,1433;Initial Catalog=@{linkedService().DBName}"
+		},
+		"LS_Gen2_CSV_dev_properties_typeProperties_url": {
+			"value": "https://stgtraininggit.dfs.core.windows.net/"
+		},
+		"training-git-WorkspaceDefaultStorage_properties_typeProperties_url": {
+			"value": "https://stgtraininggit.dfs.core.windows.net"
+		}
+	}
+}
