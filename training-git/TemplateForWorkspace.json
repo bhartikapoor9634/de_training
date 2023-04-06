@@ -119,10 +119,6 @@
 					"cancelAfter": {}
 				},
 				"parameters": {
-					"src_filesystem": {
-						"type": "string",
-						"defaultValue": "fs-dev"
-					},
 					"src_cntnr": {
 						"type": "string",
 						"defaultValue": "raw"
@@ -130,10 +126,6 @@
 					"src_filename": {
 						"type": "string",
 						"defaultValue": "data.csv"
-					},
-					"dest_filesystem": {
-						"type": "string",
-						"defaultValue": "fs-dev"
 					},
 					"dest_cntnr": {
 						"type": "string",
