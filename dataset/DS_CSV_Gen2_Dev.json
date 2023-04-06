@@ -6,13 +6,8 @@
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"filesystem": {
-				"type": "string",
-				"defaultValue": "fs-dev"
-			},
 			"container": {
-				"type": "string",
-				"defaultValue": "raw"
+				"type": "string"
 			},
 			"filename": {
 				"type": "string"
@@ -31,10 +26,7 @@
 					"value": "@dataset().container",
 					"type": "Expression"
 				},
-				"fileSystem": {
-					"value": "@dataset().filesystem",
-					"type": "Expression"
-				}
+				"fileSystem": "fs-dev"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
