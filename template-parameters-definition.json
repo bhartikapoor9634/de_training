@@ -1,0 +1,11 @@
+{
+	"Microsoft.Synapse/workspaces/datasets": {
+		"properties": {
+			"typeProperties": {
+				"location": {
+					"fileSystem": "-"
+				}
+			}
+		}
+	}
+}
