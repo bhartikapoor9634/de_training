@@ -85,10 +85,6 @@
 								"referenceName": "DS_CSV_Gen2_Dev",
 								"type": "DatasetReference",
 								"parameters": {
-									"filesystem": {
-										"value": "@pipeline().parameters.src_filesystem",
-										"type": "Expression"
-									},
 									"container": {
 										"value": "@pipeline().parameters.src_cntnr",
 										"type": "Expression"
@@ -105,10 +101,6 @@
 								"referenceName": "DS_CSV_Gen2_Dev",
 								"type": "DatasetReference",
 								"parameters": {
-									"filesystem": {
-										"value": "@pipeline().parameters.dest_filesystem",
-										"type": "Expression"
-									},
 									"container": {
 										"value": "@pipeline().parameters.dest_cntnr",
 										"type": "Expression"
@@ -169,13 +161,8 @@
 					"type": "LinkedServiceReference"
 				},
 				"parameters": {
-					"filesystem": {
-						"type": "string",
-						"defaultValue": "fs-dev"
-					},
 					"container": {
-						"type": "string",
-						"defaultValue": "raw"
+						"type": "string"
 					},
 					"filename": {
 						"type": "string"
@@ -194,10 +181,7 @@
 							"value": "@dataset().container",
 							"type": "Expression"
 						},
-						"fileSystem": {
-							"value": "@dataset().filesystem",
-							"type": "Expression"
-						}
+						"fileSystem": "fs-dev"
 					},
 					"columnDelimiter": ",",
 					"escapeChar": "\\",
