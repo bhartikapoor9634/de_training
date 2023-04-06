@@ -1,24 +1,31 @@
-name: deploy to prod
+name: deploy_to_prod
 
 on:
   push:
     branches: workspace_publish
+    
 jobs:
-  release:
+  deploy_job:
+    name: checkout_and_deploy
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: azure/synapse-workspace-deployment@release-1.0
-    with:
-      TargetWorkspaceName: 'training-prod'
-      TemplateFile: './training-git/TemplateForWorkspace.json'
-      ParametersFile: './training-git/TemplateParametersForWorkspace.json'
-      OverrideArmParameters: './training-git/parameters.yaml'
-      environment: 'Azure Public'
-      resourceGroup: 'rg-training-git'
-      clientId: ${{secrets.CLIENTID_TRAINING}}
-      clientSecret:  ${{secrets.CLIENTSECRET_TRAINING}}
-      subscriptionId: '53305064-9303-4225-8b70-d93b4348d68c'
-      tenantId: '2e2e9ce3-5a7c-4387-a907-d3f9bfe4e389'
-      DeleteArtifactsNotInTemplate: 'true'
-      managedIdentity: 'False'
+      - uses: actions/checkout@v3
+        name: checkout
+        with:
+          ref: workspace_publish
+        
+      - uses: Azure/Synapse-workspace-deployment@V1.7.0
+        name: deploy
+        with:
+          TargetWorkspaceName: 'training-prod'
+          TemplateFile: './training-git/TemplateForWorkspace.json'
+          ParametersFile: './training-git/TemplateParametersForWorkspace.json'
+          OverrideArmParameters: './training-git/parameters.yaml'
+          environment: 'Azure Public'
+          resourceGroup: 'rg-training-git'
+          clientId: ${{secrets.CLIENTID_TRAINING}}
+          clientSecret:  ${{secrets.CLIENTSECRET_TRAINING}}
+          subscriptionId: '53305064-9303-4225-8b70-d93b4348d68c'
+          tenantId: '2e2e9ce3-5a7c-4387-a907-d3f9bfe4e389'
+          DeleteArtifactsNotInTemplate: 'true'
+          operation: 'deploy'
