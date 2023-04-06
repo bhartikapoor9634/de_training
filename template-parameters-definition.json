@@ -1,9 +1,11 @@
 {
 	"Microsoft.Synapse/workspaces/datasets": {
 		"DelimitedText": {
-			"parameters": {
-				"*": {
-					"defaultValue": "-"
+			"properties": {
+				"parameters": {
+					"*": {
+						"defaultValue": "-"
+					}
 				}
 			}
 		}
