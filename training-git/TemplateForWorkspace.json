@@ -128,22 +128,28 @@
 				},
 				"parameters": {
 					"src_filesystem": {
-						"type": "string"
+						"type": "string",
+						"defaultValue": "fs-dev"
 					},
 					"src_cntnr": {
-						"type": "string"
+						"type": "string",
+						"defaultValue": "raw"
 					},
 					"src_filename": {
-						"type": "string"
+						"type": "string",
+						"defaultValue": "data.csv"
 					},
 					"dest_filesystem": {
-						"type": "string"
+						"type": "string",
+						"defaultValue": "fs-prod"
 					},
 					"dest_cntnr": {
-						"type": "string"
+						"type": "string",
+						"defaultValue": "trf"
 					},
 					"dest_filename": {
-						"type": "string"
+						"type": "string",
+						"defaultValue": "copy.csv"
 					}
 				},
 				"annotations": [],
