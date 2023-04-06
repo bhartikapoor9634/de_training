@@ -104,7 +104,7 @@
 			},
 			"dest_filesystem": {
 				"type": "string",
-				"defaultValue": "fs-prod"
+				"defaultValue": "fs-dev"
 			},
 			"dest_cntnr": {
 				"type": "string",
