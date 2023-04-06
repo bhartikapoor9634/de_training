@@ -1,13 +1,9 @@
 {
 	"Microsoft.Synapse/workspaces/datasets": {
 		"DelimitedText": {
-			"properties": {
-				"AzureBlobFSLocation": {
-					"typeProperties": {
-						"location": {
-							"fileSystem": "-"
-						}
-					}
+			"parameters": {
+				"*": {
+					"defaultValue": "-"
 				}
 			}
 		}
