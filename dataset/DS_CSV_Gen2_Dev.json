@@ -11,6 +11,10 @@
 			},
 			"filename": {
 				"type": "string"
+			},
+			"filesystem": {
+				"type": "string",
+				"defaultValue": "fs-dev"
 			}
 		},
 		"annotations": [],
@@ -26,7 +30,10 @@
 					"value": "@dataset().container",
 					"type": "Expression"
 				},
-				"fileSystem": "fs-dev"
+				"fileSystem": {
+					"value": "@dataset().filesystem",
+					"type": "Expression"
+				}
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
