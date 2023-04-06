@@ -1,0 +1,116 @@
+{
+	"name": "PL_Dev_trn",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "DS_CSV_Gen2_Dev",
+						"type": "DatasetReference",
+						"parameters": {
+							"filesystem": {
+								"value": "@pipeline().parameters.src_filesystem",
+								"type": "Expression"
+							},
+							"container": {
+								"value": "@pipeline().parameters.src_cntnr",
+								"type": "Expression"
+							},
+							"filename": {
+								"value": "@pipeline().parameters.src_filename",
+								"type": "Expression"
+							}
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DS_CSV_Gen2_Dev",
+						"type": "DatasetReference",
+						"parameters": {
+							"filesystem": {
+								"value": "@pipeline().parameters.dest_filesystem",
+								"type": "Expression"
+							},
+							"container": {
+								"value": "@pipeline().parameters.dest_cntnr",
+								"type": "Expression"
+							},
+							"filename": {
+								"value": "@pipeline().parameters.dest_filename",
+								"type": "Expression"
+							}
+						}
+					}
+				]
+			}
+		],
+		"parameters": {
+			"src_filesystem": {
+				"type": "string"
+			},
+			"src_cntnr": {
+				"type": "string"
+			},
+			"src_filename": {
+				"type": "string"
+			},
+			"dest_filesystem": {
+				"type": "string"
+			},
+			"dest_cntnr": {
+				"type": "string"
+			},
+			"dest_filename": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2023-04-06T09:18:28Z"
+	},
+	"type": "Microsoft.Synapse/workspaces/pipelines"
+}
