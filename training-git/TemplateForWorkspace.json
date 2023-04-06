@@ -16,7 +16,7 @@
 			"metadata": "Secure string for 'connectionString' of 'training-git-WorkspaceDefaultSqlServer'",
 			"defaultValue": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=tcp:training-git.sql.azuresynapse.net,1433;Initial Catalog=@{linkedService().DBName}"
 		},
-		"DS_CSV_Gen2_Dev_properties_parameters_filesystem_defaultValue": {
+		"DS_CSV_Gen2_Dev_properties_typeProperties_location_fileSystem": {
 			"type": "string"
 		}
 	},
@@ -169,10 +169,6 @@
 					},
 					"filename": {
 						"type": "string"
-					},
-					"filesystem": {
-						"type": "string",
-						"defaultValue": "[parameters('DS_CSV_Gen2_Dev_properties_parameters_filesystem_defaultValue')]"
 					}
 				},
 				"annotations": [],
@@ -188,10 +184,7 @@
 							"value": "@dataset().container",
 							"type": "Expression"
 						},
-						"fileSystem": {
-							"value": "@dataset().filesystem",
-							"type": "Expression"
-						}
+						"fileSystem": "[parameters('DS_CSV_Gen2_Dev_properties_typeProperties_location_fileSystem')]"
 					},
 					"columnDelimiter": ",",
 					"escapeChar": "\\",
